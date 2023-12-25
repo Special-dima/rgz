@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+<section>
+    <div><form action="/rgz/products"><button class="button_header" type="submit">Продукты</button></form></div>
+    <div><form action="/rgz/add_product"><button class="button_header" type="submit">Добавить продукты</button></form></div>
+    <div><form action="/rgz/orders"><button class="button_header" type="submit">Заказы</button></form></div>
+    <div><form action="/rgz/create_order"><button class="button_header" type="submit">Создать заказы</button></form></div>
+    <div><form action="/rgz/logout"><button class="button_header" type="submit">Выйти</button></form></div>
+</section>
+{% endblock %}
+
+{% block main%}
+    <h2>Добавить продукт</h2>
+    <form action="" method="post">
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" name="sku" required>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="quantity">Количество:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        <button type="submit" class="button_user">Добавить</button>
+    </form>
+    {% for success in successes %}
+        {{ success }}
+    {% endfor %}
+{% endblock %}
